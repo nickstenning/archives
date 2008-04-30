@@ -1,0 +1,36 @@
+--- 
+organisation_role_00006: 
+  organisation_id: 3
+  name: President
+  id: 6
+  person_id: 5
+organisation_role_00009: 
+  organisation_id: 4
+  name: Undergraduate Member
+  id: 9
+  person_id: 5
+organisation_role_00001: 
+  organisation_id: 2
+  name: Member
+  id: 1
+  person_id: 1
+organisation_role_00002: 
+  organisation_id: 2
+  name: Member
+  id: 2
+  person_id: 2
+organisation_role_00003: 
+  organisation_id: 2
+  name: Member
+  id: 3
+  person_id: 3
+organisation_role_00004: 
+  organisation_id: 2
+  name: Member
+  id: 4
+  person_id: 4
+organisation_role_00005: 
+  organisation_id: 1
+  name: Technical Manager
+  id: 5
+  person_id: 1

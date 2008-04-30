@@ -1,0 +1,31 @@
+--- 
+show_role_00002: 
+  name: Master Carpenter
+  id: 2
+  show_id: 2
+  person_id: 3
+show_role_00003: 
+  name: Technical Director
+  id: 3
+  show_id: 2
+  person_id: 2
+show_role_00004: 
+  name: Cast
+  id: 4
+  show_id: 2
+  person_id: 5
+show_role_00005: 
+  name: Cast
+  id: 5
+  show_id: 2
+  person_id: 4
+show_role_00006: 
+  name: Cast
+  id: 6
+  show_id: 1
+  person_id: 4
+show_role_00001: 
+  name: Technical Director
+  id: 1
+  show_id: 1
+  person_id: 3

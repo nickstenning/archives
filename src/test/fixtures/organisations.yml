@@ -1,0 +1,21 @@
+--- 
+organisation_00001: 
+  name: ADC Theatre
+  updated_at: 2008-05-01 00:15:36 +01:00
+  id: 1
+  created_at: 2008-04-30 23:51:10 +01:00
+organisation_00002: 
+  name: CUADC
+  updated_at: 2008-05-01 00:15:36 +01:00
+  id: 2
+  created_at: 2008-04-30 23:51:10 +01:00
+organisation_00003: 
+  name: BATS
+  updated_at: 2008-05-01 00:15:36 +01:00
+  id: 3
+  created_at: 2008-04-30 23:51:10 +01:00
+organisation_00004: 
+  name: Queens' College
+  updated_at: 2008-05-01 00:15:36 +01:00
+  id: 4
+  created_at: 2008-04-30 23:51:10 +01:00
