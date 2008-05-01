@@ -1,31 +1,25 @@
 --- 
-show_role_00002: 
+angus_rg_mc: 
   name: Master Carpenter
-  id: 2
-  show_id: 2
-  person_id: 3
-show_role_00003: 
+  show: rosencrantz_and_guildenstern
+  person: angus
+anna_rg_td: 
   name: Technical Director
-  id: 3
-  show_id: 2
-  person_id: 2
-show_role_00004: 
+  show: rosencrantz_and_guildenstern
+  person: anna
+jane_rg_cast: 
   name: Cast
-  id: 4
-  show_id: 2
-  person_id: 5
-show_role_00005: 
+  show: rosencrantz_and_guildenstern
+  person: jane
+john_rg_cast: 
   name: Cast
-  id: 5
-  show_id: 2
-  person_id: 4
-show_role_00006: 
+  show: rosencrantz_and_guildenstern
+  person: john
+john_hamlet_cast: 
   name: Cast
-  id: 6
-  show_id: 1
-  person_id: 4
-show_role_00001: 
+  show: hamlet
+  person: john
+angus_hamlet_td: 
   name: Technical Director
-  id: 1
-  show_id: 1
-  person_id: 3
+  show: hamlet
+  person: angus

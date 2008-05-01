@@ -1,11 +1,7 @@
 --- 
-show_00001: 
+hamlet:
   name: Hamlet
-  updated_at: 2008-05-01 00:15:36 +01:00
-  id: 1
-  created_at: 2008-05-01 00:00:42 +01:00
-show_00002: 
+  organisations: cuadc
+rosencrantz_and_guildenstern: 
   name: Rosencrantz and Guildenstern are Dead
-  updated_at: 2008-05-01 00:15:36 +01:00
-  id: 2
-  created_at: 2008-05-01 00:00:59 +01:00
+  organisations: bats
