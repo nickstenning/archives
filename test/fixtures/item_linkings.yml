@@ -1,7 +1,19 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-# one:
-#   column: value
-#
-# two:
-#   column: value
+---
+jane_ancient_document:
+  item: ancient_document
+  item_linking: jane (Person) 
+adc_theatre_book:
+  item: book
+  item_linking: adc_theatre (Organisation)
+cuadc_book:
+  item: book
+  item_linking: cuadc (Organisation)
+cuadc_flyer:
+  item: flyer
+  item_linking: cuadc (Organisation)
+footlights_flyer:
+  item: flyer
+  item_linking: footlights (Organisation)
+panto_flyer:
+  item: flyer
+  item_linking: panto (Show)

@@ -26,5 +26,18 @@ class OrganisationRoleTest < ActiveSupport::TestCase
     assert_kind_of Person, @jane_bats_president.person
     assert_equal people(:jane), @jane_bats_president.person
   end
+  
+  def test_organisation_role_name_validation
+    @or = OrganisationRole.new
+    
+    @or.valid?
+    # An OrganisationRole without a name should NOT be valid
+    assert_equal "can't be blank", @or.errors.on(:name)
+    
+    @or.name = "General Manager"
+    @or.valid?
+    # An OrganisationRole with a name should be valid
+    assert_nil @or.errors.on(:name)
+  end
 
 end

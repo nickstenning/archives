@@ -26,5 +26,18 @@ class ShowRoleTest < ActiveSupport::TestCase
     assert_kind_of Person, @angus_hamlet_td.person
     assert_equal people(:angus), @angus_hamlet_td.person
   end
+  
+  def test_show_role_name_validation
+    @sr = ShowRole.new
+    
+    @sr.valid?
+    # A ShowRole without a name should NOT be valid
+    assert_equal "can't be blank", @sr.errors.on(:name)
+    
+    @sr.name = "Master Carpenter"
+    @sr.valid?
+    # A ShowRole with a name should be valid
+    assert_nil @sr.errors.on(:name)
+  end
 
 end

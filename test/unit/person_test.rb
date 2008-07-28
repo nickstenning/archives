@@ -54,4 +54,24 @@ class PersonTest < ActiveSupport::TestCase
     assert_equal shows_from_show_roles, @angus.shows
   end
   
+  def test_person_items
+    @jane = people(:jane)
+    
+    assert_respond_to @jane.items, :each
+    assert_equal 1, @jane.items.length
+    assert_equal items(:ancient_document), @jane.items.first
+  end
+  
+  def test_person_name_validation
+    @person = Person.new
+    @person.valid?
+    # A Person without a name should NOT be valid
+    assert_equal "can't be blank", @person.errors.on(:name)
+    
+    @person.name = "Rick Astley"
+    @person.valid?
+    # A Person with a name should be valid... yes, *even* if he's Rick Astley.
+    assert_nil @person.errors.on(:name)
+  end
+  
 end

@@ -7,3 +7,5 @@ bats:
   name: BATS
 queens: 
   name: Queens' College
+footlights:
+  name: The Cambridge Footlights

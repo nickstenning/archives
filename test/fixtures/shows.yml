@@ -5,3 +5,6 @@ hamlet:
 rosencrantz_and_guildenstern: 
   name: Rosencrantz and Guildenstern are Dead
   organisations: bats
+panto:
+  name: "Black Sheep: You'll only understand how funny the name is if you're in the Footlights!"
+  organisations: [footlights, cuadc]

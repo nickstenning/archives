@@ -2,7 +2,7 @@
 # relationship works. 
 # 
 # 1. Each item has_many instances of class ItemLinking.
-# 2. Each instance of ItemLinking has an item_linkable method, which returns
+# 2. Each instance of ItemLinking has an item_linking method, which returns
 #    the object with which it's linked.
 # --
 # 3. Each instance of an object with a polymorphic association to Item, e.g.
@@ -11,6 +11,6 @@
 class ItemLinking < ActiveRecord::Base
   
   belongs_to :item
-  belongs_to :item_linkable, :polymorphic => true
+  belongs_to :item_linking, :polymorphic => true
 
 end

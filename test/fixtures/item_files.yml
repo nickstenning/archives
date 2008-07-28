@@ -1,7 +1,16 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-# one:
-#   column: value
-#
-# two:
-#   column: value
+---
+book_page_1: 
+  url: http://scanstore/book/page_1.pdf
+  item: book
+book_page_2: 
+  url: http://scanstore/book/page_2.pdf
+  item: book
+book_page_3: 
+  url: http://scanstore/book/page_3.pdf
+  item: book
+ancient_document: 
+  url: http://scanstore/ancient_document.pdf
+  item: ancient_document
+flyer: 
+  url: http://scanstore/flyer.pdf
+  item: flyer

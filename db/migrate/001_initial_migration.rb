@@ -29,7 +29,7 @@ class InitialMigration < ActiveRecord::Migration
     
     create_table :item_linkings do |t|
       t.references :item
-      t.references :item_linkings, :polymorphic => true
+      t.references :item_linking, :polymorphic => true
     end
     
     create_table :item_files do |t|

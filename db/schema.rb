@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(:version => 1) do
 
   create_table "item_linkings", :force => true do |t|
     t.integer "item_id"
-    t.integer "item_linkings_id"
-    t.string  "item_linkings_type"
+    t.integer "item_linking_id"
+    t.string  "item_linking_type"
   end
 
   create_table "items", :force => true do |t|

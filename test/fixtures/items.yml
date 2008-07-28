@@ -1,7 +1,9 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+---
+book:
+  name: A Book with Three Pages
 
-# one:
-#   column: value
-#
-# two:
-#   column: value
+ancient_document:
+  name: An Ancient Document, revealing the lascivious pastimes of thespians of bygone ages.
+
+flyer:
+  name: Panto 2008 Publicity Flyer

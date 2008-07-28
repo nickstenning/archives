@@ -36,9 +36,8 @@ class ShowTest < ActiveSupport::TestCase
     # TODO: report this (looks like a Rails bug). Fails and shouldn't, and it's
     # not our fault.
     #
-    # assert_equal organisations(:bats), @rg.organisations.first
+    #assert_equal organisations(:bats), @rg.organisations.first
   end
-  
   
   def test_show_events    
     assert_respond_to @rg.events, :each
@@ -55,6 +54,27 @@ class ShowTest < ActiveSupport::TestCase
     assert_equal 1, @rg.venues.length
     assert_equal venues_from_events, @rg.venues
     assert_equal venues(:adc_auditorium), @rg.venues.first
+  end
+  
+  def test_show_items
+    @panto = shows(:panto)
+    
+    assert_respond_to @panto.items, :each
+    assert_equal 1, @panto.items.length
+    assert_equal items(:flyer), @panto.items.first
+  end
+  
+  def test_show_name_validation
+    @show = Show.new
+    
+    @show.valid?
+    # A Show without a name should NOT be valid"
+    assert_equal "can't be blank", @show.errors.on(:name)
+    
+    @show.name = "Return to the Forbidden Two-Storey House"
+    @show.valid?
+    # A Show with a name should be valid
+    assert_nil @show.errors.on(:name)
   end
 
 end
