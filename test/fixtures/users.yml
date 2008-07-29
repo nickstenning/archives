@@ -1,0 +1,11 @@
+jane:
+  camdram_number: 1234
+  camdram_loginname: jor123
+  camdram_realname: Jane O'Reilly from Camdram
+  person: jane
+
+john:
+  camdram_number: 5678
+  camdram_loginname: jxd456
+  camdram_realname:
+  person: john

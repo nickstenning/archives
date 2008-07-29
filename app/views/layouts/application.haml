@@ -1,0 +1,18 @@
+!!! Strict
+%html
+  %head
+    %meta{'http-equiv' => 'Content-Type', :content => 'text/html; charset=utf-8'}
+    %title 
+      ADC Archives
+          
+  %body
+    .content
+    
+      -# Display any flashed messages in a #flashholder div, in paragraphs
+      -# with the class set to the flash type.
+      - if flash.keys.any?
+        #flashholder
+          - flash.each do |type, msg|
+            %p{ :class => type }&= msg
+          
+      = yield

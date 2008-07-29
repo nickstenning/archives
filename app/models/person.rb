@@ -8,6 +8,8 @@ class Person < ActiveRecord::Base
     
   has_many :item_linkings, :as => :item_linking, :dependent => :destroy
   has_many :items, :through => :item_linkings
+  
+  has_one :user
 
   validates_presence_of :name, :message => "can't be blank"
   
