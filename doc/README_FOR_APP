@@ -1,2 +1,43 @@
-Use this README file to introduce your application and point to useful places in the API for learning more.
-Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+== Welcome to the ADC Archives Application
+
+This project is an attempt to provide a web interface to an extensive set of 
+scanned  documents forming the archives of the ADC Theatre, Cambridge.
+
+== Getting Started
+
+1. The project is a rails application and thus depends on ruby (>=1.8.5) and
+   rails (2.1.0).
+
+2. You will also need to install the 'haml' gem from Rubyforge 
+   (http://rubyforge.org) to run the application and will need the 'FakeWeb' 
+   gem if you wish to run the tests. Run `rake gem` in the root of the project 
+   to see if the application's gem dependencies are satisfied.
+
+3. Run `rake setup`. This will copy scaffold configuration files to the locations 
+   they need to be for the app to run. You may wish to edit the database 
+   configuration file in config/database.yml.
+
+4. Migrate the database to the latest version by running `rake db:migrate`.
+
+Now you can either run the application's test with `rake test` -- all the tests 
+should pass. Alternatively you can go straight to starting the app by running 
+`./script/server`. This will start a Mongrel web server running on your local 
+machine. Browse to http://localhost:3000/ to see the app.
+
+== License
+
+ADC Archives -- A web interface to the archives of the ADC Theatre, Cambridge.
+Copyright (C) 2008, Nick Stenning et al.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
