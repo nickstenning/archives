@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
   
+  if Rails.env == "staging"
+    htpasswd :realm => "ADC Rails Staging Area", :file => "/etc/apache2/dav_svn.passwd"
+  end
+    
   def get_user
     @user = User.find_by_id(session[:user_id])
   end 
