@@ -13,6 +13,8 @@ class ApplicationController < ActionController::Base
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
   
+  # Protect the staging instance with people's subversion usernames/passwords.
+  # This points to the mod_dav_svn password file on romeo.
   if Rails.env == "staging"
     htpasswd :realm => "ADC Rails Staging Area", :file => "/etc/apache2/dav_svn.passwd"
   end
