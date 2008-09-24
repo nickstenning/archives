@@ -30,6 +30,12 @@ ActionController::Routing::Routes.draw do |map|
   #     admin.resources :products
   #   end
   
+  map.resources :items
+  map.item_form 'items/new/:stage', :controller => 'items', :action => 'form'
+  
+  map.resources :shows  
+  
+  map.login 'session/login', :controller => 'session', :action => 'login'
   map.new_session 'session/new', :controller => 'session', :action => 'new'
   map.create_session 'session/create', :controller => 'session', :action => 'create'
   map.destroy_session 'session/destroy', :controller => 'session', :action => 'destroy'

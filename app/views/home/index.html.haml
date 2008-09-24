@@ -1,14 +1,2 @@
-- if @user
-  %p= "Logged in as '#{@user.name}'."
-  
-  %p= "%s." % link_to("Log out", destroy_session_path)
-- else
-  %p 
-    Not logged in.
-  
-  %p
-    = "%s." % link_to("Please log in here", new_session_path(:return => request.url))
-
-%h5 Debug info
-%pre= session.to_yaml
+Welcome.
   

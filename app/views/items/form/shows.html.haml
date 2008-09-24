@@ -1,0 +1,18 @@
+%p Please identify any shows with which this item is associated.
+
+%form
+  %dl
+    %dt Shows
+    %dd
+      %input.autocomplete{autocompleter(formatted_shows_path(:format => 'txt')), :type => 'text'}
+    %dd.notes Start typing a show's name
+
+    %dt &nbsp;
+    %dd.buttons
+      %a.positive.put{ :data => {:one => 2}.to_json }
+        = icon 'tick'
+        All shows added
+      
+      %a.negative
+        = icon 'help'
+        No shows referenced

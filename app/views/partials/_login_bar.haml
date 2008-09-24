@@ -1,0 +1,9 @@
+%p
+  - if @user
+    Logged in as
+    %strong= @user.name + "."
+    
+    = "%s." % link_to("Log out", destroy_session_path)
+  - else
+    Not logged in.
+    = "%s." % link_to("Please log in here", new_session_path(:return => request.url))

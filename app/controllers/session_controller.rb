@@ -1,5 +1,8 @@
 class SessionController < ApplicationController
   
+  def login
+  end
+  
   def new
     if @user
       redirect_to root_path

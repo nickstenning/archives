@@ -1,0 +1,21 @@
+%form
+  %dl
+    %dt Type
+    %dd
+      %select
+        %option Flyer
+        %option Poster
+        %option Correspondence
+        %option Other
+    %dd.notes Please select the most appropriate category for the item.
+
+    %dt Description
+    %dd
+      %textarea.short
+    %dd.notes Please write a short (< 50 words) description of the item.
+    
+    %dt &nbsp;
+    %dd.buttons
+      %a.positive
+        = icon 'tick'
+        OK
