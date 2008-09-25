@@ -3,8 +3,8 @@ set :default_stage, 'staging'
 
 require 'capistrano/ext/multistage'
 
-set :domain,      "romeo"
-set :repository,  "http://romeo.adctheatre.com/svn/archives/trunk"
+set :domain,      "antonio"
+set :repository,  "http://antonio.adctheatre.com/svn/archives/trunk"
 set :use_sudo,    false
 
 ssh_options[:compression] = false
