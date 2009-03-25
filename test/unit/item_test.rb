@@ -10,9 +10,9 @@ class ItemTest < ActiveSupport::TestCase
     assert_kind_of Item, @book
   end
   
-  def test_item_name
-    assert_not_nil @book.name
-    assert_equal "A Book with Three Pages", @book.name
+  def test_item_description
+    assert_not_nil @book.description
+    assert_equal "A Book with Three Pages", @book.description
   end
   
   def test_item_item_files
@@ -23,17 +23,18 @@ class ItemTest < ActiveSupport::TestCase
     assert @book.item_files.include?(item_files(:book_page_3))
   end
   
-  def test_item_name_validation
+  def test_item_description_validation
     @item = Item.new
     
-    @item.valid?
-    # An Item with no name should NOT be valid
-    assert_equal "can't be blank", @item.errors.on(:name)
+    # Pretend we're on the page for updating the description.
+    @item.stage = 'description'
     
-    @item.name = "A History of the Amateur Dramatic Club..."
     @item.valid?
-    # An Item with a name should be valid
-    assert_nil @item.errors.on(:name)
+    assert_equal "can't be blank", @item.errors.on(:description)
+    
+    @item.description = "Return to the Forbidden Two-Storey House Flyer"
+    @item.valid?
+    assert_nil @item.errors.on(:description)
   end
 
 end

@@ -43,7 +43,7 @@ end
 if $0 == __FILE__
   require 'test/unit'
 
-  class TestCamdram < Test::Unit::TestCase
+  class TestCamdram < ActiveSupport::TestCase
     
     def test_login_url
       assert_equal "https://www.camdram.net/extlogin?redirect=http%3A%2F%2Ftesturl%2F", Camdram.login_url("http://testurl/")

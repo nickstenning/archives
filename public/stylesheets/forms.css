@@ -113,6 +113,7 @@ label.fieldWithErrors {
 	background: #fff;
 	border: 1px solid #d12f19;
 	margin-bottom: 1em;
+	clear: left;
 }
 
 #errorExplanation h2 {
@@ -136,6 +137,6 @@ label.fieldWithErrors {
 	display: none; 
 }
 
-.datedetail span {
+.datedetail a {
   display: none;
 }

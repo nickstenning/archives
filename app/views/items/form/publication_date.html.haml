@@ -1,24 +1,28 @@
-%p Please have a look at the item to see if it has a publication date.
 
-%form
+- form_for @item do |f|
+
+  = f.error_messages
+  
+  %p Please have a look at the item to see if it has a publication date.
+  
   %dl
-    %dt Publication date
-    %dd
-      %input.datepicker{ :type => "text" }
-    %dd.notes.datedetail
-      %a{ :href => "#" } Can't be so specific?
-      %span
-        Accurate to:
-        %input{ :name => "date[delta]", :type => "radio", :selected => true } Day
-        %input{ :name => "date[delta]", :type => "radio" } Month
-        %input{ :name => "date[delta]", :type => "radio" } Year
-    
+    %dt= f.label :publication_date
+    %dd= f.text_field :publication_date, :class => 'datepicker'
+    %dd.notes
+      Accurate to:
+      = f.radio_button :publication_date_precision, "day"
+      Day
+      = f.radio_button :publication_date_precision, "month"
+      Month
+      = f.radio_button :publication_date_precision, "year"
+      Year
+  
     %dt &nbsp;
     %dd.buttons
-      %a.positive.put{ :data => "{one:\"two\"}"}
+      %button.positive{ :type => 'submit' }
         = icon 'tick'
         OK
       
-      %a.negative
+      %button.negative.skip{ :type => 'submit' }
         = icon 'help'
         No date on item

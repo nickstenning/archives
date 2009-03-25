@@ -31,7 +31,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
   
   map.resources :items
-  map.item_form 'items/new/:stage', :controller => 'items', :action => 'form'
+  map.item_form 'items/:id/:stage', :controller => 'items', :action => 'form'
   
   map.resources :shows  
   

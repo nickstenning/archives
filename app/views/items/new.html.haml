@@ -1,10 +1,5 @@
 %h2 Adding a new item.
 
-%ul.tabbed
-  %li= link_to "Description", item_form_path(:stage => :description)
-  %li= link_to "Publication date", item_form_path(:stage => :publication_date)
-  %li= link_to "Shows", item_form_path(:stage => :shows)
-  %li= link_to "People", item_form_path(:stage => :people)
-  %li= link_to "Organisations", item_form_path(:stage => :organisations)
+= render :partial => 'form'
   
   

@@ -7,6 +7,9 @@ class Item < ActiveRecord::Base
   # Abstraction for our on-disk-or-elsewhere scanned file objects.
   has_many :item_files
   
-  validates_presence_of :name, :message => "can't be blank"
+  # Classification of items. (e.g. Flyer, Poster, Correspondence, etc.)
+  belongs_to :item_type
+  
+  validates_presence_of :description, :message => "can't be blank", :if => proc { |i| i.stage == 'description' }
 
 end

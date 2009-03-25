@@ -65,18 +65,25 @@ $(document).ready(function() {
         $(this).tabs("destroy");
     });
     
+    $('.ui-tabs-panel form').livequery(function () {
+        var container = $(this).parent('.ui-tabs-panel');
+        var tabs = container.prevAll('.ui-tabs-nav');
+        $(this).ajaxForm(function (responseText) {
+            if (responseText == "OK") {
+                var curtab = tabs.data('selected.tabs');
+                tabs.tabs('select', curtab + 1);
+            } else {
+                container.html(responseText);
+            }
+        });
+    });
+    
     
     // Set up jQuery datepicker on all elements with class 'datepicker'.
     $('.datepicker').livequery(function () {
         $(this).datepicker();
     }, function () {
         $(this).datepicker("destroy");
-    });
-    
-    $('dd.datedetail a').livequery('click', function () {
-        $(this).hide();
-        $(this).next().show();
-        $.jGrowl("Select a day in the right month or year, and then select how specific you can be.");
     });
     
     $('.autocomplete').livequery(function () {
@@ -87,4 +94,8 @@ $(document).ready(function() {
         });
     });
     
+    $('.skip').livequery('click', function () {
+        var tabs = $(this).parent('.ui-tabs-panel').prevAll('.ui-tabs-nav');
+        tabs.tabs('select', tabs.data('selected.tabs') + 1);
+    });
 });

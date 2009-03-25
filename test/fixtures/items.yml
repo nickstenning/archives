@@ -1,9 +1,9 @@
 ---
 book:
-  name: A Book with Three Pages
+  description: A Book with Three Pages
 
 ancient_document:
-  name: An Ancient Document, revealing the lascivious pastimes of thespians of bygone ages.
+  description: An Ancient Document, revealing the lascivious pastimes of thespians of bygone ages.
 
 flyer:
-  name: Panto 2008 Publicity Flyer
+  description: Panto 2008 Publicity Flyer
