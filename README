@@ -25,7 +25,7 @@ following commands.
 
     # set up the database and run the tests (they should all pass!)
     rake db:schema:load
-    rake test
+    rake
 
     # start the app
     ./script/server

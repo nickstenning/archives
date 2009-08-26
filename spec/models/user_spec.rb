@@ -1,31 +1,33 @@
-require 'test_helper'
+require File.dirname(__FILE__) + '/../spec_helper'
 
-class UserTest < ActiveSupport::TestCase
-  def setup
+describe "User" do
+  fixtures :users, :people
+
+  before do
     @user_jane = users(:jane)
     @user_john = users(:john)
   end
   
-  def test_user_sanity
+  it "user sanity" do
     assert_kind_of User, @user_jane
   end
   
-  def test_user_person
+  it "user person" do
     assert_respond_to @user_jane, :person
-    assert_equal people(:jane), @user_jane.person
+    @user_jane.person.should == people(:jane)
   end
   
-  def test_user_found_by_find_or_create_by_camdram_result
+  it "user found by find or create by camdram result" do
     result = {
       :status => "OK", 
       :number => "1234", 
       :loginname => "jor123", 
       :realname => "Jane O'Reilly from Camdram"
     }
-    assert_equal @user_jane, User.find_or_create_by_camdram_result(result)
+    User.find_or_create_by_camdram_result(result).should == @user_jane
   end
   
-  def test_user_created_by_find_or_create_by_camdram_result
+  it "user created by find or create by camdram result" do
     result = {
       :status => "OK", 
       :number => "9876", 
@@ -34,16 +36,16 @@ class UserTest < ActiveSupport::TestCase
     }
     user = User.find_or_create_by_camdram_result(result)
     assert_kind_of User, user
-    assert_nil user.person
-    assert_equal "abc987", user.camdram_loginname
-    assert_equal "Alan Cox", user.camdram_realname
+    user.person.should == nil
+    user.camdram_loginname.should == "abc987"
+    user.camdram_realname.should == "Alan Cox"
   end
   
-  def test_user_name_from_person_if_person_specified
-    assert_equal "Jane O'Reilly", @user_jane.name # Note this is NOT "Jane O'Reilly from Camdram"
+  it "user name from person if person specified" do
+    @user_jane.name # Note this is NOT "Jane O'Reilly from Camdram".should == "Jane O'Reilly"
   end
   
-  def test_user_name_from_camdram_if_no_person
+  it "user name from camdram if no person" do
     result = {
       :status => "OK", 
       :number => "9876", 
@@ -51,7 +53,7 @@ class UserTest < ActiveSupport::TestCase
       :realname => "Alan Cox"
     }
     user = User.find_or_create_by_camdram_result(result)
-    assert_equal "Alan Cox", user.name
+    user.name.should == "Alan Cox"
   end
 
 end

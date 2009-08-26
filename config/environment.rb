@@ -26,7 +26,10 @@ Rails::Initializer.run do |config|
   # Specify gems that this application depends on. 
   # They can then be installed with "rake gems:install" on new installations.
   
-  config.gem "haml"
+  config.gem 'haml'
+  config.gem 'rspec', :lib => 'spec'
+  config.gem 'rspec-rails', :lib => 'spec/rails'
+  config.gem 'spork'
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
