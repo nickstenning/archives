@@ -16,15 +16,17 @@ following commands.
     # download the submodules (mostly rails plugins)
     git submodule update --init
 
-    # the next command may require root privileges
-    sudo rake gems:install 
     rake setup
 
-    # configure the databases you wish to use for development and testing
+    # optionally, configure the databases you wish to use for development and 
+    # testing
     vim config/database.yml 
 
+    # the next command may require root privileges
+    sudo rake gems:install 
+
     # set up the database and run the tests (they should all pass!)
-    rake db:schema:load
+    rake db:migrate
     rake
 
     # start the app
