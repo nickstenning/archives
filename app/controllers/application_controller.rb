@@ -25,7 +25,6 @@ class ApplicationController < ActionController::Base
 
   def login_required
     unless @user
-      flash[:error] = "Please log in before attempting to use this feature."
       redirect_to login_path(:return => request.request_uri) 
     end
   end

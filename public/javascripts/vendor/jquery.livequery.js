@@ -1,8 +1,8 @@
-/* Copyright (c) 2007 Brandon Aaron (brandon.aaron@gmail.com || http://brandonaaron.net)
+/*! Copyright (c) 2008 Brandon Aaron (http://brandonaaron.net)
  * Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) 
  * and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
  *
- * Version: 1.0.2
+ * Version: 1.0.3
  * Requires jQuery 1.1.3+
  * Docs: http://docs.jquery.com/Plugins/livequery
  */
@@ -31,8 +31,8 @@ $.extend($.fn, {
 		// Make sure it is running
 		q.stopped = false;
 		
-		// Run it
-		$.livequery.run( q.id );
+		// Run it immediately for the first time
+		q.run();
 		
 		// Contnue the chain
 		return this;

@@ -5,8 +5,6 @@
 @import url("buttons.css");
 @import url("tabs.css");
 @import url("forms.css");
-@import url("jquery/jquery-ui-themeroller.css");
-@import url("jquery/jquery.jgrowl.css");
 @import url("jquery/jquery.autocomplete.css");
 
 body {
@@ -50,11 +48,6 @@ a:hover, a:active {
 #header #title h1 a:hover span {
 	color: #fff;
 	background: #800040;
-}
-
-#flashholder .error, #flashholder .notice, #flashholder .success {
-	margin: 0;
-	padding: 0.6em; 
 }
 
 #navigation {

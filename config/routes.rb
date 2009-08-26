@@ -13,8 +13,6 @@ ActionController::Routing::Routes.draw do |map|
 
   map.root :controller => 'home'
 
-  SprocketsApplication.routes(map) 
-
   # See how all your routes lay out with "rake routes"
 
   # Install the default routes as the lowest priority.

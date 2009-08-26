@@ -6,7 +6,6 @@
       ADC Archives
       
     = stylesheet_link_tag 'blueprint/screen'
-    = stylesheet_link_tag 'blueprint/plugins/fancy-type/screen.css'
     = stylesheet_link_tag 'blueprint/print', :media => 'print'
     = stylesheet_link_tag 'screen'
     
@@ -15,7 +14,8 @@
       = stylesheet_link_tag 'ie'
     
     = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery#{Rails.env == 'production' ? '.min' : ''}.js"
-    = sprockets_include_tag
+    = javascript_include_tag 'vendor/jquery.metadata', 'vendor/jquery.livequery', 'vendor/jquery.autocomplete', 'application', :cache => true
+
     = yield_authenticity_token
   
   %body
@@ -26,17 +26,8 @@
     
       #header.span-24
     
-        #title.span-14
-          %h1 
-            = link_to "adc<span>archives</span>", root_path
-        
-        #flashholder.span-10.last
-    
-          -# Display any flashed messages in a #flashholder div, in paragraphs
-          -# with the class set to the flash type.
-          - if flash.keys.any?
-            - flash.each do |type, msg|
-              %p{ :class => type }&= msg
+        #title
+          %h1= link_to "adc<span>archives</span>", root_path
       
       #navigation.span-24
         = render :partial => 'partials/navigation'
