@@ -1,0 +1,3 @@
+[submodule "vendor/plugins/sprockets-rails"]
+	path = vendor/plugins/sprockets-rails
+	url = git://github.com/sstephenson/sprockets-rails.git

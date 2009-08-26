@@ -1,3 +1,5 @@
+//= require <plugins/jquery.livequery>
+
 $.fn.wait = function(time, type) {
     time = time || 1000;
     type = type || "fx";

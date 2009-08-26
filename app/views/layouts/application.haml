@@ -14,15 +14,8 @@
       = stylesheet_link_tag 'blueprint/ie'
       = stylesheet_link_tag 'ie'
     
-    = javascript_include_tag 'jquery-1.2.6.js'
-    = javascript_include_tag 'jquery.ui-1.6rc2.js'
-    = javascript_include_tag 'plugins/jquery.livequery.js'
-    = javascript_include_tag 'plugins/jquery.jgrowl.js'
-    = javascript_include_tag 'plugins/jquery.metadata.js'
-    = javascript_include_tag 'plugins/jquery.autocomplete.js'
-    = javascript_include_tag 'plugins/jquery.form.js'
-    = javascript_include_tag 'application.js'
-    
+    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery#{Rails.env == 'production' ? '.min' : ''}.js"
+    = sprockets_include_tag
     = yield_authenticity_token
   
   %body
