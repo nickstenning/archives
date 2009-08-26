@@ -1,28 +1,37 @@
 == Welcome to the ADC Archives Application
 
 This project is an attempt to provide a web interface to an extensive set of 
-scanned  documents forming the archives of the ADC Theatre, Cambridge.
+scanned documents forming the archives of the ADC Theatre, Cambridge.
 
-== Getting Started
+== Development
 
-1. The project is a rails application and thus depends on ruby (>=1.8.5) and
-   rails (2.1.0).
+The project is a rails application and thus depends on ruby (>=1.8.5) and
+rails (2.3.3). To get started developing, you'll probably want to run the 
+following commands.
 
-2. You will also need to install the 'haml' gem from Rubyforge 
-   (http://rubyforge.org) to run the application and will need the 'FakeWeb' 
-   gem if you wish to run the tests. Run `rake gem` in the root of the project 
-   to see if the application's gem dependencies are satisfied.
+    # if you haven't already, install ruby and rubygems (use google), then
+    # run
+    sudo gem install rails -v2.3.3
 
-3. Run `rake setup`. This will copy scaffold configuration files to the locations 
-   they need to be for the app to run. You may wish to edit the database 
-   configuration file in config/database.yml.
+    # download the submodules (mostly rails plugins)
+    git submodule update --init
 
-4. Migrate the database to the latest version by running `rake db:migrate`.
+    # the next command may require root privileges
+    sudo rake gems:install 
+    rake setup
 
-Now you can either run the application's test with `rake test` -- all the tests 
-should pass. Alternatively you can go straight to starting the app by running 
-`./script/server`. This will start a Mongrel web server running on your local 
-machine. Browse to http://localhost:3000/ to see the app.
+    # configure the databases you wish to use for development and testing
+    vim config/database.yml 
+
+    # set up the database and run the tests (they should all pass!)
+    rake db:schema:load
+    rake test
+
+    # start the app
+    ./script/server
+
+Now, if all went well, you should be able to visit http://localhost:3000/ and 
+see the front page of the application.
 
 == License
 

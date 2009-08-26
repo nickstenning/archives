@@ -1,3 +1,12 @@
 [submodule "vendor/plugins/sprockets-rails"]
 	path = vendor/plugins/sprockets-rails
 	url = git://github.com/sstephenson/sprockets-rails.git
+[submodule "vendor/plugins/htpasswd"]
+	path = vendor/plugins/htpasswd
+	url = git://github.com/maiha/htpasswd.git
+[submodule "vendor/plugins/ar_fixtures"]
+	path = vendor/plugins/ar_fixtures
+	url = git://github.com/topfunky/ar_fixtures.git
+[submodule "vendor/plugins/validates_date_time"]
+	path = vendor/plugins/validates_date_time
+	url = git://github.com/nickstenning/validates_date_time.git
