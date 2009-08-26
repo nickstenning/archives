@@ -3,11 +3,16 @@ set :default_stage, 'staging'
 
 require 'capistrano/ext/multistage'
 
-set :domain,      "antonio"
-set :repository,  "http://antonio.adctheatre.com/svn/archives/trunk"
-set :use_sudo,    false
+default_run_options[:pty] = true
+set :domain, "antonio"
+set :repository, "git@github.com:nickstenning/archives.git"
+set :branch, "master"
+set :scm, "git"
+set :deploy_via, :remote_cache
+set :use_sudo, false
 
-ssh_options[:compression] = false
+ssh_options[:compression] = true
+ssh_options[:forward_agent] = true
 
 namespace :deploy do
   
