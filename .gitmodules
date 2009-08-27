@@ -7,3 +7,6 @@
 [submodule "vendor/plugins/validates_date_time"]
 	path = vendor/plugins/validates_date_time
 	url = git://github.com/nickstenning/validates_date_time.git
+[submodule "vendor/plugins/will_paginate"]
+	path = vendor/plugins/will_paginate
+	url = git://github.com/mislav/will_paginate.git

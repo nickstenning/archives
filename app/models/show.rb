@@ -1,3 +1,5 @@
+require 'md5'
+
 class Show < ActiveRecord::Base
   
   has_many :show_roles
@@ -16,4 +18,10 @@ class Show < ActiveRecord::Base
   
   validates_presence_of :name, :message => "can't be blank"
   
+  # TODO: do something more sensible than this!
+  # We want to extract a thumbnail from the show's items.
+  def thumbnail_url
+    hash = MD5.hexdigest(name)
+    "http://www.gravatar.com/avatar/#{hash}?s=50&r=any&default=monsterid&forcedefault=1"
+  end
 end

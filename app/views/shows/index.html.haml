@@ -1,0 +1,10 @@
+%ul.shows
+  - for show in @shows
+    %li
+      %span.show-thumb
+        = image_tag(show.thumbnail_url)
+      %span.show-name= show.name
+      %br
+      %span.show-date= show.created_at.strftime('%B %Y')
+
+= will_paginate @shows
