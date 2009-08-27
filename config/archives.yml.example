@@ -1,0 +1,6 @@
+development: &dev
+  archives_path: /where/to/store/archives
+  incoming_path: /where/to/look/for/new/images
+
+test: *dev
+

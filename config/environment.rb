@@ -72,3 +72,12 @@ Rails::Initializer.run do |config|
 end
 
 Haml::Template.options[:format] = :html5
+
+# Archives app-specific config
+require 'ostruct'
+require 'yaml'
+
+config = OpenStruct.new(YAML.load_file("#{RAILS_ROOT}/config/archives.yml"))
+::AppConfig = OpenStruct.new(config.send(RAILS_ENV))
+
+class ConfigurationError < RuntimeError; end
