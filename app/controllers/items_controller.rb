@@ -8,13 +8,20 @@ class ItemsController < ApplicationController
     @item = Item.new(:draft => true)
     @item.save_without_validation
 
-    redirect_to edit_item_path @item, FORM_STAGES.first
+    redirect_to edit_item_path @item
   end
 
   def edit
+    if params[:stage].empty? or !(FORM_STAGES.include?(params[:stage].intern) rescue false)
+      stage = FORM_STAGES.first
+    else
+      stage = params[:stage].intern
+    end
+    
     @stages = FORM_STAGES
     @item = Item.find(params[:id])
-    @item.update_attribute(:stage, params[:stage] || @item.stage)
+
+    @item.update_attribute(:stage, stage)
   end
   
   def update

@@ -5,7 +5,7 @@ module ApplicationHelper
   end
   
   def show_sidebar?
-    !content_for(:sidebar, '').blank?
+    !!@content_for_sidebar
   end
   
   def yield_authenticity_token

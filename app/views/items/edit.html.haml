@@ -1,6 +1,6 @@
 %ul.tabbed
   - @stages.each do |t|
-    %li{:class => (@item.stage == t.to_s) ? 'active' : nil}
+    %li{:class => (@item.stage == t) ? 'active' : nil}
       = link_to t.to_s.humanize, edit_item_path(@item, t) 
 
 = render :partial => "items/form/#{@item.stage}"
