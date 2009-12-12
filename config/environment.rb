@@ -29,7 +29,6 @@ Rails::Initializer.run do |config|
   config.gem 'haml'
   config.gem 'rspec', :lib => 'spec'
   config.gem 'rspec-rails', :lib => 'spec/rails'
-  config.gem 'spork'
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
@@ -77,7 +76,10 @@ Haml::Template.options[:format] = :html5
 require 'ostruct'
 require 'yaml'
 
-config = OpenStruct.new(YAML.load_file("#{RAILS_ROOT}/config/archives.yml"))
-::AppConfig = OpenStruct.new(config.send(RAILS_ENV))
+
+unless Object.const_defined?('AppConfig')
+  config = OpenStruct.new(YAML.load_file("#{RAILS_ROOT}/config/archives.yml"))
+  ::AppConfig = OpenStruct.new(config.send(RAILS_ENV))
+end
 
 class ConfigurationError < RuntimeError; end
