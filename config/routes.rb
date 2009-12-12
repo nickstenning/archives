@@ -5,6 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :items
   
   map.resources :shows  
+  map.resources :people
   
   map.with_options :controller => 'session' do |session|
     session.login 'session/login', :action => 'login'
