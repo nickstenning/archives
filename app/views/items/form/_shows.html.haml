@@ -1,18 +1,23 @@
 %p Please identify any shows with which this item is associated.
 
-%form
+- form_for @item do |f|
+
+  = f.error_messages
+
   %dl
     %dt Shows
+    - for show in @item.shows
+      %dd= show.name
     %dd
-      %input.autocomplete{autocompleter(formatted_shows_path(:format => 'txt')), :type => 'text'}
+      %input.autocomplete{autocompleter('show'), :type => 'text'}
     %dd.notes Start typing a show's name
 
     %dt &nbsp;
     %dd.buttons
-      %a.positive.put{ :data => {:one => 2}.to_json }
+      %button.positive{ :type => "submit" }
         = icon 'tick'
         All shows added
       
-      %a.negative.skip
+      %button.negative{ :type => "submit" }
         = icon 'help'
         No shows referenced

@@ -26,6 +26,14 @@ class ItemsController < ApplicationController
   
   def update
     @item = Item.find(params[:id])
+    
+    if ids = params[:item][:shows]
+      @item.item_linkings |= ids.map do |id| 
+        ItemLinking.new(:item_linking => Show.find(id))
+      end
+      params[:item].delete(:shows)
+    end
+    
     if @item.update_attributes(params[:item])
       if increment_stage(@item) 
         redirect_to edit_item_path(@item)

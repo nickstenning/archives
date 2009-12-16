@@ -12,4 +12,10 @@ class Item < ActiveRecord::Base
   
   validates_presence_of :description, :message => "can't be blank", :if => proc { |i| i.stage == 'description' }
 
+  def shows
+    self.item_linkings.select do |linking|
+      linking.item_linking_type == "Show"
+    end.map(&:item_linking)
+  end
+
 end

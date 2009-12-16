@@ -21,9 +21,10 @@ JAVASCRIPT
     end
   end
   
-  def autocompleter( path )
+  def autocompleter( objtype )
     { :data => {
-        :url => path
+        :objtype => objtype.pluralize,
+        :url => send("formatted_#{objtype.pluralize}_path", {:format => 'json'})
       }.to_json
     }
   end
