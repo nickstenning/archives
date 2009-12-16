@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
     @item = Item.new(:draft => true)
     @item.save_without_validation
 
-    redirect_to edit_item_path @item
+    redirect_to edit_item_path(@item)
   end
 
   def edit
@@ -27,18 +27,32 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update_attributes(params[:item])
-      if @item.stage == FORM_STAGES.last
-        redirect_to item_path(@item)
+      if increment_stage(@item) 
+        redirect_to edit_item_path(@item)
       else
-        redirect_to edit_item_path @item, FORM_STAGES[FORM_STAGES.index(@item.stage.intern) + 1]
+        redirect_to item_path(@item)
       end
     else
-      render
+      render :action => :edit
     end
   end
   
   def show
     @item = Item.find(params[:id])
+  end
+
+  private
+
+  def increment_stage( item )
+    idx = FORM_STAGES.index(item.stage)
+
+    if idx == FORM_STAGES.length
+      false
+    elsif idx
+      item.stage = FORM_STAGES[idx + 1]
+    else
+      item.stage = 0
+    end
   end
 
 end

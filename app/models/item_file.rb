@@ -6,14 +6,6 @@ class ItemFile < ActiveRecord::Base
   
   validates_presence_of :url, :message => "can't be blank"
 
-  def self.find_unprocessed
-    incoming = Pathname.new(AppConfig.incoming_path).expand_path
-
-    unless incoming.directory?
-      raise ConfigurationError, "Archives incoming_path '#{incoming}' does not exist or is not a directory."
-    end
-
-    return Pathname.glob(incoming + '*.tif')
-  end
+  named_scope :unattached, :conditions => "item_id = '' or item_id is null"
 
 end

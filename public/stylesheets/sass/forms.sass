@@ -1,4 +1,4 @@
-label
+dt
   font-size: 1.1em
   font-weight: bold
 
@@ -106,6 +106,10 @@ form
     img
       vertical-align: middle
 
+    ul
+      margin: 0.5em 0 0 0
+      padding: 0
+
     &.notes
       margin-left: 20%
       padding: 0 0 0.3em 1%
@@ -142,6 +146,20 @@ label.fieldWithErrors
   ul
     margin-left: 2em
 
+.taglist
+  li
+    +border-radius(0.4em)
+    margin: 0 0.3em 0 0
+    padding: 0 0.5em
+    background: #395ee8
+    font-weight: bold
+    color: white
+    display: inline
+    float: left
+    line-height: 16px
 
-.ui-datepicker-prev label, .ui-datepicker-next label, .datedetail a
-  display: none
+    img
+      opacity: 0.5
+
+    img:hover
+      opacity: 1

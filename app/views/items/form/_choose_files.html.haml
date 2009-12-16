@@ -3,10 +3,17 @@
   = f.error_messages
 
   %dl
-    %dt= f.label :item_files, 'Files to process'
-    %dd= f.collection_select :item_files, ItemFile.find_unprocessed, :id, :basename, {}, {:multiple => true,:name => 'item[item_file_ids][]'}
+    - if @item.item_files.any?
+      %dt Already attached
+      %dd
+        %ul.taglist
+          - @item.item_files.each do |file|
+            %li #{file.url} #{link_to (icon 'cross_white')}
 
-    %dd.notes Please select the files you wish to process for this item. You can select multiple files by holding down 'Ctrl' (Win) or 'Cmd' (Mac) while clicking.
+    %dt= f.label :item_files, 'Currently unattached files'
+    %dd= f.collection_select :item_files, ItemFile.unattached, :id, :url, {}, {:multiple => true,:name => 'item[item_file_ids][]'}
+
+    %dd.notes Please select the files you wish to add to this item. You can select multiple files by holding down 'Ctrl' (Win) or 'Cmd' (Mac) while clicking.
 
     %dt &nbsp;
     %dd.buttons
