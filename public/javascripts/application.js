@@ -38,9 +38,17 @@ $(document).ready(function() {
     
     $('.autocomplete').livequery(function () {
         var md = $(this).metadata();
-        $(this).autocomplete(md.url).result(function (e, i) {
+        $(this).autocomplete(md.url, {
+            formatItem: function (item) {
+                return $.evalJSON(item).name;
+            }
+        }).result(function (e, i) {
+            i = $.evalJSON(i);
             $(e.target).val('');
-            $(this).parent().before('<dd>'+i+'</dd>');
+            $(this).parent().before(
+                '<input type="hidden" name="item[' + md.objtype + '][]" value="' + i.id + '">' +
+                '<dd>' + i.name + '</dd>'
+            );
         });
     });
 });
