@@ -1,6 +1,6 @@
 require 'pathname'
 
-class ItemFile < ActiveRecord::Base
+class Attachment < ActiveRecord::Base
 
   belongs_to :item
   

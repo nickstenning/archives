@@ -5,7 +5,7 @@ class Item < ActiveRecord::Base
   has_many :item_linkings
   
   # Abstraction for our on-disk-or-elsewhere scanned file objects.
-  has_many :item_files
+  has_many :attachments
   
   # Classification of items. (e.g. Flyer, Poster, Correspondence, etc.)
   belongs_to :item_type

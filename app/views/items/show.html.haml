@@ -5,4 +5,10 @@
 %p 
   Coming soon! Meanwhile, why don't you 
   = link_to('edit the item?', edit_item_path(@item))
-  
+
+%p
+  = debug @item
+
+%p
+  - @item.attachments.each do |file|
+    = debug file

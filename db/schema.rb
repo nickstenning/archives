@@ -9,20 +9,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080928162945) do
+ActiveRecord::Schema.define(:version => 20091229184610) do
+
+  create_table "attachments", :force => true do |t|
+    t.integer  "item_id"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "events", :force => true do |t|
     t.integer  "show_id"
     t.integer  "venue_id"
     t.datetime "start"
     t.datetime "end"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "item_files", :force => true do |t|
-    t.integer  "item_id"
-    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(:version => 20080928162945) do
     t.integer  "item_type_id"
     t.boolean  "draft"
     t.string   "stage"
+    t.date     "publication_date"
+    t.string   "publication_date_precision", :default => "day"
   end
 
   create_table "organisation_roles", :force => true do |t|

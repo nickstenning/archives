@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe "Item" do
-  fixtures :items, :item_files
+  fixtures :items, :attachments
 
   before do
     @book = items(:book)
@@ -17,11 +17,11 @@ describe "Item" do
   end
   
   it "item item files" do
-    assert_respond_to @book.item_files, :each
-    @book.item_files.length.should == 3
-    @book.item_files.include?(item_files(:book_page_1)).should_not == nil
-    @book.item_files.include?(item_files(:book_page_2)).should_not == nil
-    @book.item_files.include?(item_files(:book_page_3)).should_not == nil
+    assert_respond_to @book.attachments, :each
+    @book.attachments.length.should == 3
+    @book.attachments.include?(attachments(:book_page_1)).should_not == nil
+    @book.attachments.include?(attachments(:book_page_2)).should_not == nil
+    @book.attachments.include?(attachments(:book_page_3)).should_not == nil
   end
   
   it "item description validation" do

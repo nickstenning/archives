@@ -3,15 +3,18 @@
   = f.error_messages
 
   %dl
-    - if @item.item_files.any?
+    - if @item.attachments.any?
       %dt Already attached
       %dd
         %ul.taglist
-          - @item.item_files.each do |file|
-            %li #{file.url} #{link_to (icon 'cross_white')}
+          - @item.attachments.each do |file|
+            %li
+              #{file.url} #{link_to (icon 'cross_white')}
+              = f.hidden_field :attachments, :id => "attachment_#{file.id}", |
+                               :name => 'item[attachment_ids][]', :value => file.id |
 
-    %dt= f.label :item_files, 'Currently unattached files'
-    %dd= f.collection_select :item_files, ItemFile.unattached, :id, :url, {}, {:multiple => true,:name => 'item[item_file_ids][]'}
+    %dt= f.label :attachments, 'Currently unattached files'
+    %dd= attachment_collection_select(f)
 
     %dd.notes Please select the files you wish to add to this item. You can select multiple files by holding down 'Ctrl' (Win) or 'Cmd' (Mac) while clicking.
 
