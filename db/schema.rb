@@ -9,11 +9,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091229184610) do
+ActiveRecord::Schema.define(:version => 20091230215733) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "item_id"
-    t.string   "url"
+    t.string   "doc_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

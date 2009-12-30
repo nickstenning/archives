@@ -9,7 +9,7 @@
         %ul.taglist
           - @item.attachments.each do |file|
             %li
-              #{file.url} #{link_to (icon 'cross_white')}
+              #{file.doc_id} #{link_to (icon 'cross_white')}
               = f.hidden_field :attachments, :id => "attachment_#{file.id}", |
                                :name => 'item[attachment_ids][]', :value => file.id |
 
