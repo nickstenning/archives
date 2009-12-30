@@ -9,14 +9,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091230215733) do
+ActiveRecord::Schema.define(:version => 20091230224600) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "item_id"
-    t.string   "doc_id"
+    t.string   "doc_id",     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "attachments", ["doc_id"], :name => "index_attachments_on_doc_id", :unique => true
 
   create_table "events", :force => true do |t|
     t.integer  "show_id"

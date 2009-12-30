@@ -7,19 +7,15 @@ describe "Attachment" do
     @book_page_2 = attachments(:book_page_2)
   end
   
-  it "item file sanity" do
-    assert_kind_of Attachment, @book_page_2
-  end
-  
-  it "item file doc_id" do
+  it "should have a document id" do
     @book_page_2.doc_id.should == "page_2"
   end
   
-  it "item file item" do
+  it "can be associated with an item" do
     @book_page_2.item.should == items(:book)
   end
   
-  it "item file doc_id validation" do
+  it "should not allow blank doc_ids" do
     @attachment = Attachment.new
     
     @attachment.valid?
@@ -32,4 +28,21 @@ describe "Attachment" do
     @attachment.errors.on(:doc_id).should == nil
   end
   
+  it "should not allow non-unique doc_ids" do
+    @attachment = Attachment.new
+    
+    @attachment.doc_id = "page_2"
+    @attachment.valid?
+    @attachment.errors.on(:doc_id).should == "must be unique"
+  end
+  
+  it "should provide a path to the original file" do
+    archives_path = AppConfig.archives_path
+    @book_page_2.original_path.should == "#{archives_path}/#{@book_page_2.doc_id}/#{@book_page_2.doc_id}.tif"
+  end
+  
+  it "should provide a path to a PDF version" do
+    archives_path = AppConfig.archives_path
+    @book_page_2.pdf_path.should == "#{archives_path}/#{@book_page_2.doc_id}/#{@book_page_2.doc_id}.pdf"
+  end
 end
