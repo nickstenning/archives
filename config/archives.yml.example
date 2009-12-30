@@ -1,6 +1,11 @@
 development: &dev
-  archives_path: /where/to/store/archives
-  incoming_path: /where/to/look/for/new/images
+  # The path where unprocessed images will be dumped (in TIFF format)
+  incoming_path: /home/archives/data/incoming
+  # The storage path for the archives
+  archives_path: /home/archives/data/archives
+  # Path to a working tiff2pdf executable, as provided by LibTIFF
+  # (http://www.libtiff.org/)
+  tiff2pdf: /usr/bin/tiff2pdf
 
 test: *dev
 
