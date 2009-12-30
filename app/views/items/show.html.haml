@@ -1,10 +1,8 @@
 %h2
   Item
   = @item.id
-  
-%p 
-  Coming soon! Meanwhile, why don't you 
-  = link_to('edit the item?', edit_item_path(@item))
+
+%p.large= link_to('Edit this item', edit_item_path(@item))
 
 %p
   = debug @item

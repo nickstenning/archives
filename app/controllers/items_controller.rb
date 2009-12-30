@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   
   before_filter :login_required
   
-  FORM_STAGES = [:choose_files, :description, :publication_date, :shows, :people, :organisations]
+  FORM_STAGES = [:choose_files] #, :description, :publication_date, :shows, :people, :organisations]
 
   def new
     @item = Item.new(:draft => true)
