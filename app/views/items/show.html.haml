@@ -1,12 +1,10 @@
 %h2
   Item
   = @item.id
-
-%p.large= link_to('Edit this item', edit_item_path(@item))
-
+  
 %p
   = debug @item
 
 %p
-  - @item.attachments.each do |file|
-    = debug file
+  - @item.attachments.each do |att|
+    = debug att

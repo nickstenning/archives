@@ -5,7 +5,14 @@ module ApplicationHelper
   end
   
   def show_sidebar?
-    !!@content_for_sidebar
+    # TODO: is there a nice way to do this without rendering the partial?
+    begin
+      render(:partial => "#{controller.controller_name}/sidebar")
+    rescue ActionView::MissingTemplate
+      return false
+    end
+    
+    return true
   end
   
   def yield_authenticity_token
@@ -27,6 +34,12 @@ JAVASCRIPT
         :url => send("formatted_#{objtype.pluralize}_path", {:format => 'json'})
       }.to_json
     }
+  end
+  
+  def application_javascripts
+    vendor = %w[form metadata livequery autocomplete json]
+    local  = %[application]
+    vendor.map { |x| "vendor/jquery.#{x}" } << local
   end
   
 end

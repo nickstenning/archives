@@ -25,4 +25,10 @@ $(document).ready(function() {
 
         return false;
     });
+    
+    $('.actions li a').livequery(function () {
+        if ($(this).attr('href') === window.location.pathname) {
+            $(this).addClass('active');
+        }
+    });
 });

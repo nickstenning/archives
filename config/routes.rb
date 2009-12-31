@@ -2,7 +2,9 @@ ActionController::Routing::Routes.draw do |map|
   # The priority is based upon order of creation: first created -> highest priority.
 
   map.edit_item 'items/:id/edit/:stage', :controller => 'items', :action => 'edit', :stage => ''
-  map.resources :items
+  map.resources :items do |item|
+    item.resources :attachments
+  end
   
   map.resources :shows  
   map.resources :people

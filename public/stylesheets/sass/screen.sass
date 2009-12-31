@@ -2,13 +2,37 @@
 // imports.
 
 @import url("jquery/jquery.autocomplete.css")
-
 @import mixins.sass
 @import buttons.sass
-@import tabs.sass 
+@import tabs.sass
 @import forms.sass
 @import layout.sass
 @import shows.sass
+@import attachments.sass
 
 .large
   font-size: 130%
+  
+#sidebar h3.actionhead
+  color: #666
+  width: 198px
+  margin: 0
+  padding: 0.5em 0
+  text-shadow: 1px 1px 1px #fff
+  text-indent: 0.5em
+  background: #eaeaea
+  border: 1px solid #ccc
+  +border-top-left-radius(0.7em)
+  +border-top-right-radius(0.7em)
+  
+#sidebar ul.actions
+  +zmp
+  width: 181px
+  list-style: none
+  
+  li
+    width: 100%
+    a
+      width: 100%
+      border: 1px solid #ccc
+      border-top: none

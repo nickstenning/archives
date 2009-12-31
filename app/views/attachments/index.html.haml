@@ -1,0 +1,14 @@
+%div.docviewer
+  %div.navigator
+    %a.left{ navigator_attrs(:left, @item, @attachments, @attachment) } 
+      &laquo; Prev
+    
+    - @attachments.each_with_index do |att, idx|
+      %a.attachment{ :href => item_attachment_path(@item, att), |
+                     :class => ((att == @attachment) ? 'active' : '') } |
+        = idx + 1
+    
+    %a.right{ navigator_attrs(:right, @item, @attachments, @attachment) } 
+      Next &raquo;
+  
+  %iframe{ :src => attachment_path(@attachment, :format => 'pdf') }

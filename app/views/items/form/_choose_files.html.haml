@@ -13,7 +13,7 @@
               = f.hidden_field :attachments, :id => "attachment_#{file.id}", |
                                :name => 'item[attachment_ids][]', :value => file.id |
 
-    %dt= f.label :attachments, 'Currently unattached files'
+    %dt= f.label :attachments, 'Unattached documents'
     %dd= attachment_collection_select(f)
 
     %dd.notes Please select the files you wish to add to this item. You can select multiple files by holding down 'Ctrl' (Win) or 'Cmd' (Mac) while clicking.

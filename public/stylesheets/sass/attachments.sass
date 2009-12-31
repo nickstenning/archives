@@ -1,0 +1,66 @@
+.docviewer
+  text-align: center
+  
+  .navigator
+    !icon_height = 42px
+    !icon_width = 33px
+    !arrow_size = 26px
+
+    width: 100%
+    margin: 0 0 1.3em 0
+  
+    .left, .right
+      font-size: 0px
+      line-height: 0%
+      width: 0px
+      position: relative
+      top = -(!icon_height - !arrow_size) / 2
+      border-top-color: #fff
+      border-bottom-color: #fff
+      border-style: solid
+      border-top-width = (1/2) * !arrow_size
+      border-bottom-width = (1/2) * !arrow_size
+      cursor: pointer
+      
+      &.disabled, &.disabled:hover
+        border-right-color: #ddd
+        border-left-color: #ddd
+        cursor: default
+  
+    .left
+      border-right-width = !arrow_size
+      border-right-color: #77c
+      
+      &:hover
+        border-right-color: #f00
+
+    .right
+      border-left-width = !arrow_size
+      border-left-color: #77c
+      
+      &:hover
+        border-left-color: #f00
+        
+    .attachment
+      line-height = !icon_height
+      width = !icon_width
+      height = !icon_height
+      display: inline-block
+      margin: 0 0.2em
+      background: url(../images/page.png) no-repeat left top
+      text-decoration: none
+      font-size: 2em 
+      font-weight: bold
+      color: #000
+      opacity: 0.3
+      
+      &.active, &:hover
+        opacity: 1
+      
+  iframe
+    margin: 0 auto
+    padding: 0
+    width: 600px
+    height: 650px
+    
+    

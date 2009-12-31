@@ -1,0 +1,12 @@
+- if @item
+  %h3.actionhead
+    Item
+    = @item.id
+  
+  %ul.actions.buttons
+    %li
+      = link_to_doc_viewer icon('page_white_magnify') + "Open document viewer", @item
+    %li
+      = link_to icon('page_white') + "View item", item_path(@item)
+    %li
+      = link_to icon('page_white_edit') + "Edit item", edit_item_path(@item)
