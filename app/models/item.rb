@@ -12,6 +12,8 @@ class Item < ActiveRecord::Base
   
   validates_presence_of :description, :message => "can't be blank", :if => proc { |i| i.stage == 'description' }
   
+  serialize :stage
+  
   %w[show person organisation].each do |obj|
     define_method(obj.pluralize) do
       Object.const_get(obj.classify).find(:all, :joins => :item_linkings, :conditions => ['item_linkings.item_id = ?', id])

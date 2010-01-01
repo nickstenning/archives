@@ -12,6 +12,17 @@
     %dd= f.text_area :description, :class => 'short', :rows => 5
     %dd.notes Please write a short (< 50 words) description of the item.
     
+    %dt= f.label :publication_date
+    %dd= f.text_field :publication_date, :class => 'datepicker'
+    %dd.notes
+      Accurate to:
+      = f.radio_button :publication_date_precision, "day"
+      Day
+      = f.radio_button :publication_date_precision, "month"
+      Month
+      = f.radio_button :publication_date_precision, "year"
+      Year
+    
     %dt &nbsp;
     %dd.buttons
       %button{ :type => 'submit' }
