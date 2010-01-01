@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091230224600) do
+ActiveRecord::Schema.define(:version => 20100101180910) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "item_id"
@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(:version => 20091230224600) do
 
   create_table "item_linkings", :force => true do |t|
     t.integer "item_id"
-    t.integer "item_linking_id"
-    t.string  "item_linking_type"
+    t.integer "linked_object_id"
+    t.string  "linked_object_type"
   end
 
   create_table "item_types", :force => true do |t|

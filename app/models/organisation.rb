@@ -6,7 +6,7 @@ class Organisation < ActiveRecord::Base
   has_and_belongs_to_many :shows
   
   # Polymorphic association with Items.
-  has_many :item_linkings, :as => :item_linking, :dependent => :destroy
+  has_many :item_linkings, :as => :linked_object, :dependent => :destroy
   has_many :items, :through => :item_linkings
   
   validates_presence_of :name, :message => "can't be blank"

@@ -13,7 +13,7 @@ class Show < ActiveRecord::Base
   # Venues through those on its Events. Make sense?
   has_many :venues, :through => :events
   
-  has_many :item_linkings, :as => :item_linking, :dependent => :destroy
+  has_many :item_linkings, :as => :linked_object, :dependent => :destroy
   has_many :items, :through => :item_linkings
   
   validates_presence_of :name, :message => "can't be blank"

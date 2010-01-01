@@ -11,6 +11,6 @@
 class ItemLinking < ActiveRecord::Base
   
   belongs_to :item
-  belongs_to :item_linking, :polymorphic => true
+  belongs_to :linked_object, :polymorphic => true
 
 end

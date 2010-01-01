@@ -1,19 +1,19 @@
 ---
 jane_ancient_document:
   item: ancient_document
-  item_linking: jane (Person) 
+  linked_object: jane (Person) 
 adc_theatre_book:
   item: book
-  item_linking: adc_theatre (Organisation)
+  linked_object: adc_theatre (Organisation)
 cuadc_book:
   item: book
-  item_linking: cuadc (Organisation)
+  linked_object: cuadc (Organisation)
 cuadc_flyer:
   item: flyer
-  item_linking: cuadc (Organisation)
+  linked_object: cuadc (Organisation)
 footlights_flyer:
   item: flyer
-  item_linking: footlights (Organisation)
+  linked_object: footlights (Organisation)
 panto_flyer:
   item: flyer
-  item_linking: panto (Show)
+  linked_object: panto (Show)

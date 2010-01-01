@@ -11,11 +11,11 @@ class Item < ActiveRecord::Base
   belongs_to :item_type
   
   validates_presence_of :description, :message => "can't be blank", :if => proc { |i| i.stage == 'description' }
-
-  def shows
-    self.item_linkings.select do |linking|
-      linking.item_linking_type == "Show"
-    end.map(&:item_linking)
+  
+  %w[show person organisation].each do |obj|
+    define_method(obj.pluralize) do
+      Object.const_get(obj.classify).find(:all, :joins => :item_linkings, :conditions => ['item_linkings.item_id = ?', id])
+    end
   end
 
 end
