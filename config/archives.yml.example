@@ -3,9 +3,14 @@ development: &dev
   incoming_path: /home/archives/data/incoming
   # The storage path for the archives
   archives_path: /home/archives/data/archives
+  
+  # This should be a symlink to the archives_path accessible from the web.
+  archives_public_path: /media 
+  
   # Path to a working tiff2pdf executable, as provided by LibTIFF
   # (http://www.libtiff.org/)
   tiff2pdf: /usr/bin/tiff2pdf
-
+  # Path to a working convert executable, as provided by ImageMagick
+  convert: /usr/bin/convert
 test: *dev
 

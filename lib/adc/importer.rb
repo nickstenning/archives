@@ -28,6 +28,7 @@ module ADC
         f.rename(original_path(doc_id)) # 'original' as in the original imported file.
         create_attachment_for(doc_id)
         create_pdf_for(doc_id)
+        create_thumbnail_for(doc_id)
       end
     end
     
@@ -43,6 +44,10 @@ module ADC
     
     def pdf_path(doc_id)
       folder_path(doc_id) + "#{doc_id}.pdf"
+    end
+    
+    def thumbnail_path(doc_id)
+      folder_path(doc_id) + "#{doc_id}_H100.png"
     end
     
     def create_folder_for(doc_id)
@@ -63,6 +68,13 @@ module ADC
         raise Exception, "tiff2pdf executable appears invalid: check '#{AppConfig.tiff2pdf}', as specified in config/archives.yml"
       end
       system("#{AppConfig.tiff2pdf} -o '#{pdf_path(doc_id)}' '#{original_path(doc_id)}'")
+    end
+    
+    def create_thumbnail_for(doc_id)
+      unless Pathname(AppConfig.convert).executable?
+        raise Exception, "convert executable appears invalid: check '#{AppConfig.convert}', as specified in config/archives.yml"
+      end
+      system("#{AppConfig.convert} '#{original_path(doc_id)}' -thumbnail 250x100 -unsharp 0x.5 '#{thumbnail_path(doc_id)}'")
     end
     
     def check_paths!

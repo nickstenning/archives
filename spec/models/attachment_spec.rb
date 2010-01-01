@@ -45,4 +45,9 @@ describe "Attachment" do
     archives_path = AppConfig.archives_path
     @book_page_2.pdf_path.should == "#{archives_path}/#{@book_page_2.doc_id}/#{@book_page_2.doc_id}.pdf"
   end
+  
+  it "should provide a path to a PNG thumbnail" do
+    archives_path = AppConfig.archives_path
+    @book_page_2.thumbnail_path.should == "#{archives_path}/#{@book_page_2.doc_id}/#{@book_page_2.doc_id}_H100.png"
+  end
 end

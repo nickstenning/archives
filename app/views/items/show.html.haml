@@ -2,9 +2,42 @@
   Item
   = @item.id
   
-%p
-  = debug @item
-
-%p
-  - @item.attachments.each do |att|
-    = debug att
+%dl
+  %dt.type Item type
+  %dd.type= @item.item_type ? @item.item_type.name : '<em>Unknown</em>'
+  
+  %dt.description Description
+  %dd.description= !@item.description.empty? ? @item.description : '<em>No description&hellip;</em>'
+  
+  %dt.attachments Files
+  %dd.attachments  
+    - if @item.attachments.any?
+      - @item.attachments.each do |att|
+        = link_to_doc_viewer image_tag(att.public_thumbnail_path), @item, att
+    - else
+      %em None. 
+  
+  %dt.shows Shows referenced
+  - if @item.shows.any?
+    - @item.shows.each do |show|
+      %dd.shows= link_to show.name, show_path(show)
+  - else
+    %dd.shows
+      %em None.
+      
+  %dt.people People referenced
+  - if @item.people.any?
+    - @item.people.each do |person|
+      %dd.people= link_to person.name, person_path(person)
+  - else
+    %dd.people
+      %em None.
+      
+      
+  %dt.organisations Organisations referenced
+  - if @item.organisations.any?
+    - @item.organisations.each do |organisation|
+      %dd.organisations= link_to organisation.name, organisation_path(organisation)
+  - else
+    %dd.organisations
+      %em None.

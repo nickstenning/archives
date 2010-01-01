@@ -15,12 +15,24 @@ class Attachment < ActiveRecord::Base
   
   def pdf_path
     File.join(folder, "#{doc_id}.pdf")
-  end  
+  end
+  
+  def thumbnail_path
+    File.join(folder, "#{doc_id}_H100.png")
+  end
+  
+  def public_thumbnail_path
+    File.join(public_folder, "#{doc_id}_H100.png")
+  end
   
   protected
   
   def folder
     File.join(AppConfig.archives_path, doc_id)
   end
-
+  
+  def public_folder
+    File.join(AppConfig.archives_public_path, doc_id)
+  end
+  
 end

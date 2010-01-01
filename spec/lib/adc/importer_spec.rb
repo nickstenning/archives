@@ -107,4 +107,9 @@ describe ADC::Importer do
     @i.perform
     (@archives + 'a' + 'a.pdf').should exist
   end
+  
+  it "should create a PNG thumbnail version of the tif file" do
+    @i.perform
+    (@archives + 'a' + 'a_H100.png').should exist
+  end
 end
