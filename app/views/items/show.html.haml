@@ -2,12 +2,12 @@
   Item
   = @item.id
   
-%dl
+%dl.parallel
   %dt.type Item type
-  %dd.type= @item.item_type ? @item.item_type.name : '<em>Unknown</em>'
+  %dd.type= @item.item_type ? @item.item_type.name : '<em>Unknown.</em>'
   
   %dt.description Description
-  %dd.description= !@item.description.empty? ? @item.description : '<em>No description&hellip;</em>'
+  %dd.description= (@item.description && !@item.description.strip.empty?) ? @item.description : '<em>None.</em>'
   
   %dt.attachments Files
   %dd.attachments  

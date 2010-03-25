@@ -1,63 +1,41 @@
-dt
-  font-size: 1.1em
-  font-weight: bold
-
-
 fieldset
   padding: 1.4em
   margin: 0 0 1.5em 0
   border: 1px solid #ccc
 
-
 legend
   font-weight: bold
   font-size: 1.2em
 
-
 input
-  &[type="text"], &.text, &.title
-    margin: 0.5em 0
+  &[type="text"], &[type="password"], &.text, &.title
+    margin: 0 0 0.5em 0
+    padding: 0.4em
+    width: 30em
     border: 1px solid #bbb
-
-
-textarea, select
-  margin: 0.5em 0
-  border: 1px solid #bbb
-
-
-input
-  &[type="text"]:focus, &.text:focus, &.title:focus
-    border-color: #666
-
-
-textarea:focus, select:focus
-  border-color: #666
-
-
-input
-  &[type="text"].fieldWithErrors, &.text.fieldWithErrors, &.title.fieldWithErrors
-    border-color: #d12f19
-
-
-textarea.fieldWithErrors, select.fieldWithErrors
-  border-color: #d12f19
-
-
-input
-  &[type="text"], &.text
-    width: 30em
-    padding: 0.4em
-
+    
+    &:focus
+      border-color: #666
+      
+    &.fieldWithErrors
+      border-color: #d12f19
+      
   &.title
-    width: 30em
-    padding: 0.4em
     font-size: 1.5em
 
   &.datepicker
-    background: url(/images/icons/calendar_view_month.png) no-repeat 7.1em 0.2em
     width: 8em
-
-
+    
+textarea, select
+  margin: 0 0 0.5em 0
+  border: 1px solid #bbb
+  
+  &:focus
+    border-color: #666
+    
+  &.fieldWithErrors
+    border-color: #d12f19
+  
 textarea
   width: 39em
   height: 25em
@@ -72,37 +50,9 @@ select
   &[multiple]
     height: 10em
 
-
-
 form dl
-  width: 100%
-  display: inline-block
-
-  &:after
-    content: "."
-    display: block
-    height: 0
-    clear: both
-    visibility: hidden
-
-
-* html form dl
-  height: 1px
-
-
-form
-  dt
-    width: 20%
-    margin: 0.5em 0
-    float: left
-    clear: left
-    text-align: right
-
+  +parallel-dl
   dd
-    float: left
-    width: 79%
-    margin: 0 0 0 1%
-
     img
       vertical-align: middle
 
@@ -111,20 +61,11 @@ form
       padding: 0
 
     &.notes
-      margin-left: 20%
-      padding: 0 0 0.3em 1%
-      clear: left
+      padding: 0 0 0.3em 0
       color: #555
-      width: auto
-
-    &.buttons
-      margin-top: 1em
-      width: 407px
-
 
 label.fieldWithErrors
   color: #d12f19
-
 
 #errorExplanation
   background: #fff
@@ -147,6 +88,8 @@ label.fieldWithErrors
     margin-left: 2em
 
 .taglist
+  margin-top: 0
+  
   li
     +border-radius(0.4em)
     margin: 0 0.3em 0 0

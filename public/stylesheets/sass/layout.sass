@@ -21,9 +21,13 @@ a
 
   h1
     font-size: 4em
-    text-shadow: #d4d4d4 2px 3px 2px
+    text-shadow: #d4d4d4 2px 2px 3px
 
-    span
+    span.adc
+      color: #009
+      letter-spacing: 0.06em
+
+    span.archives
       color: #009
 
     a:hover
@@ -35,38 +39,96 @@ a
         background: #800040
 
 #navigation
-  background: #eaeaea
-  
+
   ul
+    position: relative
+    border: 1px solid #ccc
     list-style-type: none
-    font-size: 1.3em
-    margin: 0
-    padding: 0
+    +zmp
+    +clearfix
 
     li
       float: left
       width: auto
       display: block
 
-      a
-        background: #f0f0f0
-        text-decoration: none
-        padding: 0.4em
-        margin: 0 0.6em 0 0
-        display: block
+    &.main
+      background: #eaeaea
+      font-size: 1.3em
+      border-bottom: none
+      padding-top: 0.4em
 
-        &:link, &:visited
+      li
+        a
+          color: #666
           background: #f0f0f0
+
+          border: 1px solid #ccc
+          +border-top-left-radius(0.7em)
+          +border-top-right-radius(0.7em)
+          border-bottom: none
           text-decoration: none
+          text-shadow: 1px 1px 1px #fff
           padding: 0.4em
-          margin: 0 0.6em 0 0
+          margin: 0 0 0 0.4em
           display: block
 
-        &:hover, &:active
-          background: #fff
+          &:hover, &:active, &.active
+            background: #fff
+
+          &.active
+            color: #333
+            font-weight: bold
+            z-index: 100
+            position: relative
+            top: 1px
+            cursor: default
+
+    &.sub
+      +clearfix
+      height: 2em
+      font-size: 1.1em
+      background: transparent url("../images/nav-hook.png") no-repeat scroll left center
+      border: none
+      border-top: 1px solid #ccc
+      z-index: 50
+      padding: 0.5em 0 0 1.8em
+      
+      &:empty
+        background-image: none
+        height: 1px
+        padding: 0
+
+      li a
+        color: #666
+        text-decoration: none
+        text-shadow: 1px 1px 1px #fff
+        margin: 0 0.25em
+        padding: 0.3em
+        background: #f0f0f0
+        border:
+          right: 1px solid #ccc
+          bottom: 1px solid #ccc
+        +border-radius(0.3em)
+
+        img.icon
+          vertical-align: baseline
+          margin: 0 3px -3px 0 !important
+
+        &:hover, &:active, &.active
+          border:
+            left: 1px solid #ccc
+            right: none
+            bottom: none
+            top: 1px solid #ccc
+
+        &.active
+          color: #333
+          font-weight: bold
+          cursor: default
 
 #main
-  margin: 2em 0 0 0 
+  margin: 2em 0 0 0
 
 #sidebar
   margin: 2em 0 0 0

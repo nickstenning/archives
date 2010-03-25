@@ -6,7 +6,7 @@ ul.tabbed
   margin: 0 0 1em 0
   list-style: none
   line-height: 1em
-  border-bottom: 1px solid #aaa
+  border-bottom: 1px solid #ccc
 
   li
     float: left
@@ -21,26 +21,25 @@ ul.tabbed
     background: #fff
     margin: 0
     padding: 4px 0.6em
-    border-left: 1px solid #eaeaea
-    border-top: 1px solid #eaeaea
-    border-right: 1px solid #eaeaea
-
+    border: 1px solid #eaeaea
+    border-bottom: none
+    +border-top-left-radius(0.3em)
+    +border-top-right-radius(0.3em)
+    
   li
     a
       &:hover, &:active
         color: #444
         background: #fff
-        border-color: #aaa
+        border-color: #ccc
         border-bottom-color: #fff
 
     &.active a
       &:link, &:visited
         color: #444
         background: #fff
-        border-color: #aaa
+        border-color: #ccc
         border-bottom-color: #fff
-
-      &:link, &:visited
         position: relative
         top: 1px
         z-index: 102

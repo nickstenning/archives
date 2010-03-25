@@ -29,3 +29,45 @@
 =zmp
   margin: 0
   padding: 0
+
+=clearfix
+  *display: inline-block
+  &:after
+    content: "."
+    display: block
+    height: 0
+    clear: both
+    visibility: hidden
+
+=parallel-dl
+  +clearfix
+  clear: left
+  width: 100%
+  background: transparent url(../images/dlbg.png) repeat-y 21% top
+  padding: 0.5em 0
+  
+  dt
+    width: 20%
+    margin: 1em 0 0 0
+    float: left
+    clear: right
+    text-align: right
+    
+    &:first-child, &:first-child + dd
+      margin-top: 0em
+      
+  dd
+    float: right
+    min-height: 1.5em
+    width: 78%
+    margin: 0 0 0 2%
+
+  dt + dd
+    margin-top: 1em
+
+  dt, dd
+    font-size: 1em
+    line-height: 1.5em
+  
+  * html &
+    height: 1px

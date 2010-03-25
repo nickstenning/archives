@@ -42,4 +42,23 @@ JAVASCRIPT
     vendor.map { |x| "vendor/jquery.#{x}" } << local
   end
   
+  def nav_link( link_text, path, options={} )
+    r = ActionController::Routing::Routes
+    
+    current_path = r.recognize_path(request.request_uri, {:method => :get})
+    named_path   = r.recognize_path(path, {:method => :get})
+    
+    if (current_path[:controller] == named_path[:controller]) and
+       ((options[:specificity] != :action) or (current_path[:action] == named_path[:action]))
+      options[:class] ||= ''
+      options[:class] += ' active'
+    end
+    
+    link_to link_text, path, options
+  end
+  
+  def sub_nav_link( link_text, path, options )
+    nav_link(link_text, path, options.update(:specificity => :action))
+  end
+  
 end
