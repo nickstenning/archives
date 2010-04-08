@@ -42,4 +42,11 @@ JAVASCRIPT
     vendor.map { |x| "vendor/jquery.#{x}" } << local
   end
   
+  def nonblank(text, fallback)
+    if text and text.strip.any?
+      text
+    else
+      fallback
+    end
+  end
 end

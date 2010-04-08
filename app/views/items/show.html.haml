@@ -7,7 +7,7 @@
   %dd.type= @item.item_type ? @item.item_type.name : '<em>Unknown</em>'
   
   %dt.description Description
-  %dd.description= !@item.description.empty? ? @item.description : '<em>No description&hellip;</em>'
+  %dd.description= nonblank @item.description, '<em>No description&hellip;</em>'
   
   %dt.attachments Files
   %dd.attachments  
