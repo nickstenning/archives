@@ -45,7 +45,7 @@ JAVASCRIPT
   def nav_link( link_text, path, options={} )
     r = ActionController::Routing::Routes
     
-    current_path = r.recognize_path(request.request_uri, {:method => :get})
+    current_path = r.recognize_path(request.path, {:method => :get})
     named_path   = r.recognize_path(path, {:method => :get})
     
     if (current_path[:controller] == named_path[:controller]) and
