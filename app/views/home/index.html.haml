@@ -3,3 +3,5 @@ Welcome.
 %ul
   = list_of(@items) do |item|
     = link_to "Item #{item.id}", item_path(item)
+    = surround '(', ' attachments)' do
+      %strong= item.attachments.count

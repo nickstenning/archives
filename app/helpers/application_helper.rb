@@ -61,4 +61,11 @@ JAVASCRIPT
     nav_link(link_text, path, options.update(:specificity => :action))
   end
   
+  def nonblank(text, fallback)
+    if text and text.strip.any?
+      text
+    else
+      fallback
+    end
+  end
 end
